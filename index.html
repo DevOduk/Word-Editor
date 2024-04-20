@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="media/Webicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+</head>
+<body>
+
+<div class="galaxyLoader">
+    <img src="media/Logocoder.png" alt="">
+    <p class="today">   </p>
+    <div class="balls-container">
+        <div class="pair1">
+            <div class="ball n1"></div>
+            <div class="ball n2"></div>
+        </div>
+        <div class="pair2">
+            <div class="ball n3"></div>
+            <div class="ball n4"></div>
+        </div>
+       </div>
+       <br>
+    <div class="redirecting">
+       <div>Please wait a moment...</div>
+       <div style="display: flex; gap: 15px; align-items:center;">
+        <div class="loadingbar">
+            <div class="innerloading"></div>
+        </div>
+       </div>
+    </div>
+</div>
+
+</body>
+
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        overflow: hidden;
+    }
+    .loadingbar {
+        width: 600px;
+        height: 7px;
+        background-color: rgba(196, 196, 196, 0.408);
+        border-radius: 15px;
+        margin: 20px 0;
+
+    }
+    .innerloading {
+        width: 0%;
+        height: 100%;
+        background-color: rgb(255, 255, 255);
+        border-radius: 15px;
+    }
+    .galaxyLoader {
+        width: fit-content;
+        margin: auto;
+        padding: 10px;
+        text-align: center;
+        justify-content: center;
+    }
+    *{
+        font-family: sans-serif;
+        color: white;
+    }
+    img {
+        height: 90px;
+        margin: 20px;
+        position: absolute;
+        top: 50px; left: 50px;
+    }
+    .today {
+        text-align: center;
+        font-weight: 200;
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin: 30px 0;
+    }
+    .pair1, .pair2 {
+        display: flex;
+        padding: 5px;
+        gap: 10px;
+    }
+       .balls-container {
+        width: fit-content;
+        padding: 10px;
+        position: relative;
+        animation: rotate .62s linear infinite;
+        margin: 0 auto;
+       }
+       .ball {
+        width: 10px;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        background-color: rgb(0, 0, 0);
+        transition: .4s ease-in-out;
+       }
+
+       @keyframes rotate {
+        0% {
+            transform: rotate(0deg) scale(1.5);
+        }
+        50% {
+            transform: rotate(180deg) scale(.5); 
+        }
+        100% {
+            transform: rotate(360deg) scale(1.5);
+        }
+       }
+    .popup {
+        width: 450px;
+        background-color: rgb(0, 0, 0);
+        color: white;
+        border-radius: 20px;
+        padding: 30PX 50PX;
+        text-align: center;
+        justify-content: center;
+        position: fixed;
+        bottom:  10px;
+        line-height: 1.8;
+        
+        i{
+            position: absolute;
+            right: 25px; top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.3rem;
+            cursor: pointer;
+        }
+        i:hover{
+            color: gainsboro;
+        }
+    }
+    .popup a {
+        color: rgb(0, 255, 0) !important;
+        text-decoration: none;
+    }
+    .popup a:hover {
+        color: rgb(255, 242, 0) !important;
+    }
+
+
+
+    
+    video {
+        object-fit: cover;
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+    </style>
+    <video id="backgroundVideo" loop muted autoplay>
+        <source src="media/Free Download Gradient Background Virgin America_1080p.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+        <div class="popup">
+            Hi there Champ! Check out my portfolio here <br> <a href=""> My Portfolio</a>
+            <i class="fa fa-xmark"></i>
+        </div>
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.title = "Welcome to WordEditor";
+            var body = document.body;
+            body.style.transition = "1s";
+            
+            var popup = document.querySelector(".popup");
+    
+            popup.style.right = "-730px";
+            popup.style.transition = ".4s"
+    
+            function popupBox(){
+                    popup.style.right = "10px";
+                setTimeout((e)=>{
+                    popup.style.right = "-730px";
+                }, 7000)
+            }
+         /*   setTimeout((e)=>{
+                popupBox()
+            }, 5000)
+            */
+            var loadingbar = document.querySelector(".loadingbar");
+            var innerloading = document.querySelector(".innerloading");
+            innerloading.style.width = "0%";
+            innerloading.style.transition = "width 4s ease-in-out";
+            
+            // Update the width to 100% after 4 seconds
+            setTimeout(() => {
+                innerloading.style.width = "100%";
+            }, 1000);
+            
+
+    function updateTime(){
+        var currentDate = new Date();
+        var hrs = currentDate.getHours();
+        var mins = currentDate.getMinutes();
+        var sec = currentDate.getSeconds();
+    
+        hrs = (hrs < 10) ? "0" + hrs : hrs;
+        mins = (mins < 10) ? "0" + mins : mins;
+        sec = (sec < 10) ? "0" + sec : sec;
+
+        document.querySelector(".today").textContent = hrs + ":" + mins + ":" + sec;
+
+
+        if(mins == 0 && sec == 0){
+            popup.innerHTML= `
+            It's ${hrs}:00 HRS!
+            <i class="fa fa-xmark"></i>
+            `
+            popupBox()
+            var popupClose = document.querySelector(".popup i");
+
+            popupClose.addEventListener("click", (e)=>{
+                popup.style.right = "-730px";
+            })
+        }
+    }
+    updateTime()
+    setInterval(updateTime, 1)
+
+    
+    var balls = document.querySelectorAll(".ball");
+    function changeColors() {
+        var colors = ["rgb(0, 255, 0)"];
+        var randomColor = colors[Math.floor(Math.random() * colors.length)];
+    
+        balls.forEach(function(ball) {
+            ball.style.backgroundColor = randomColor;
+        });
+    }
+    
+    // Call the function initially
+    changeColors();
+    
+    // Set an interval to change colors every second
+    setInterval(changeColors, 5000);
+
+
+
+
+    
+    var redirect = document.querySelector(".redirecting");
+    setTimeout(()=>{
+        document.title = "Redirecting...";
+        redirect.innerHTML = "Redirecting in <span>5</span>s.";
+        var redirectTime = document.querySelector(".redirecting span");
+        redirectTime.textContent = 5;
+        var intervalId = setInterval(function timingset(){
+            redirectTime.textContent--;
+            if(redirectTime.textContent == 0){
+                window.location = "./main.html";
+                clearInterval(intervalId);
+            }
+        }, 1000);
+    }, 5700)
+})
+</script>
+</html>
+
