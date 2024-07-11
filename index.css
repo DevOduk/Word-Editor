@@ -22,9 +22,6 @@ footer {
         font-size: 1.5rem;
         transition: .15s;
     }
-    i:hover {
-        transform: translateY(-10px);
-    }
 }
 
 footer a:hover {
@@ -50,9 +47,6 @@ footer a {
     transform: none;
     text-decoration: none;
     color: blue;
-}
-footer a:hover, footer li:hover, .socials .btn:hover{
-    color: rebeccapurple;
 }
 
 
@@ -206,7 +200,7 @@ min-width: 120px;
         position: relative;
         color: black;
         font-family: sans-serif;
-        padding: 35px;
+        padding: 110px;
         background-color: white;
         outline: none;
         border: 1px solid gainsboro;
@@ -214,12 +208,13 @@ min-width: 120px;
         border-radius: 10px;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
+        height: fit-content;
         .range {
             position: absolute;
             background-color: rebeccapurple;
             line-height: 2;
-            top: 10px;
-            right: 10px;
+            top: 60px;
+            right: 110px;
             font-size: .7rem;
             border-radius: 5px;
             padding: 2px 15px;
@@ -230,11 +225,14 @@ min-width: 120px;
         width: 100%;
         color: black;
         font-family: sans-serif;
-        line-height: 1.7;
+        line-height: 2;
         padding: 15px;
         background-color: transparent;
         outline: none;
         border: none;
+        height: fit-content !important;
+        resize:vertical !important;
+        
     }
     .wordCount {
         width: 100%;
@@ -405,6 +403,8 @@ min-width: 120px;
         min-width: 130px;
         font-size: .8rem;
         padding: 10px;
+        outline: none;
+        border: none;
     }
     button:nth-child(2) {
         border-top-left-radius: 0!important;
@@ -497,6 +497,9 @@ min-width: 120px;
     position: relative;
     img {
         width: 100%;
+    }
+    .textContentArea {
+        outline: none;
     }
 }
 
@@ -626,8 +629,8 @@ min-width: 120px;
         position: absolute;
         background-color: rebeccapurple;
         line-height: 2;
-        top: 10px;
-        right: 10px;
+        top: 60px;
+        right: 110px;
         font-size: .7rem;
         border-radius: 5px;
         padding: 2px 15px;

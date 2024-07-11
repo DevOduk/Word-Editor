@@ -29,7 +29,6 @@ window.onscroll = function() {
 
 
 var textArea = document.getElementById("text");
-var uploadedDoc = document.querySelector(".ContentWrapper");
 var textContentArea = document.querySelector(".textContentArea");
 
 textContentArea.addEventListener("input", function(){
@@ -123,7 +122,7 @@ countDocument.addEventListener("click", (e) => {
                         var text = result.value;
                         //console.log(text);
                         setTimeout(() => {
-                            uploadedDoc.setAttribute("contenteditable", "true");
+                            textContentArea.setAttribute("contenteditable", "true");
                             textContentArea.innerHTML = text;
                             countUploadedText();
                         }, 3500);
@@ -449,7 +448,7 @@ modes.forEach(function(writingMode){
             writingModeActive = false;
             uploadModeActive = true;
 
-            textContentArea.textContent = "Upload a document...";
+            textContentArea.textContent = "Upload a word document...";
             //console.log("Mode set to Upload");
         } else {
             writingModeActive = true;
