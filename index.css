@@ -1,0 +1,779 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+.btnHero {
+    padding: 3px 20px;
+    margin-top: 15px;
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 4px;
+    min-width: 145px;
+}
+.btnHero:hover {
+    background-color: rgba(255, 255, 255, 0.946);
+    color: black !important;
+}
+.btnHero:nth-child(2) {
+    background-color: white;
+    color: black !important;
+}
+body{
+    background-repeat: no-repeat;
+    background-size: cover;
+    line-height: 2;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: ghostwhite;
+    scroll-snap-type: mandatory;
+    scroll-behavior: smooth;
+}
+footer {
+    background-color: white;
+    padding: 20px 0;
+    line-height: 2;
+    color: black;
+    i {
+        font-size: 1.5rem;
+        transition: .15s;
+    }
+}
+
+footer a:hover {
+    text-decoration: #00ff08;
+}
+footer section {
+    margin: 0 auto;
+}
+footer ul {
+    gap: 5px; 
+    display: flex; 
+    flex-direction: column; 
+    font-family: sans-serif;
+    text-align: left;
+    margin: 10px 0;
+    padding-left: 20px;
+    text-align: center;
+    padding-left: 40px;
+}
+footer a {
+    width: 100%;
+    text-align: left;
+    transform: none;
+    text-decoration: none;
+    color: blue;
+}
+.third {
+    min-width: 200px;
+    text-align: center;
+}
+.third:nth-child(3) {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+
+
+
+
+
+.alert-info {
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    width: 500px;
+    z-index: 233;
+    i {
+        font-size: 1.5rem;
+    }
+    button {
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+        background-color: transparent;
+        outline: none; border: none;
+    }
+}
+.NavigationP {
+    display: flex;
+    flex-direction: column;
+    margin: 30px 0;
+    align-items: center;
+}
+footer .NavigationP div {
+    text-align: left;
+}
+.socials {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .btn {
+        color: gray;
+        width: 100%;
+        text-align: left;
+    }
+    .btn:hover {
+        border: 1px solid black;
+    }
+}
+.socials button:hover i{
+    opacity: 1;
+    transition: .4s ease;
+    position: relative;
+    
+}
+.socials button:hover {
+    background-color: rgba(0, 255, 38, 0);
+    transform: none !important;
+    transition: .4s ease;
+    border: 1px solid white;
+    text-decoration: none;
+    justify-content: space-around;
+}
+.socials a:hover {
+    text-decoration: none !important;
+    transition: .4s ease;
+    transform: none;
+}
+
+.Based i{
+    padding-right: 10px;
+}
+.Based ul {
+    list-style: none;
+    padding-left: 0px;
+}
+#interpretation {
+text-align: center;
+padding: 10px;
+}
+.lowerBMI h3 {
+margin-top: 20px;
+margin-bottom: 12px;
+}
+
+.heroSecction {
+    position: relative !important;
+    width: 100%;
+    height: 100vh;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+
+    .layer {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        gap: 15px;
+    }
+#arrowD {
+    position: absolute;
+    bottom: 40px;
+    color: white;
+    font-size: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+}
+
+#backgroundVideo {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background: linear-gradient(rgb(217, 36, 50), #0d4090);
+}
+
+.mainNav {
+height: fit-content;
+display: flex;
+align-items: center;
+justify-content: space-between;
+position: relative !important;
+width: 100% !important;
+backdrop-filter: blur(10px);
+margin: 0 !important;
+padding: 10px 30px;
+z-index: 20;
+color: white;
+img {
+    width: 200px;
+}
+.span {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    #account{
+        border-radius: 50%;
+        aspect-ratio: 1/1 !important;
+        object-fit: cover;
+        object-position: center;
+        cursor: pointer;
+        border: none;
+        background-color: white;
+        padding: 8px;
+        color: black;
+        ion-icon {
+            font-size: 1.5rem;
+            line-height: 0;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+}
+.banner {
+color: white;
+cursor: pointer;
+background-color: rebeccapurple;
+border-radius: 15px;
+font-size: .8rem;
+min-width: 120px;
+}
+.banner:hover {
+    background-color: rgb(76, 32, 120);
+    color: white;
+}
+    #realtimetextviewer {
+        padding: 15px 10px;
+        margin: 20px 0;
+    }
+    #text {
+        min-height: 80vh;
+    }
+    .textareaWrapper {
+        width: 100%;
+        position: relative;
+        color: black;
+        font-family: sans-serif;
+        padding: 110px;
+        background-color: white;
+        outline: none;
+        border: 1px solid black;
+        border-bottom: 1px solid gainsboro;
+        border-radius: 10px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        height: fit-content;
+        .range {
+            position: absolute;
+            background-color: rebeccapurple;
+            line-height: 2;
+            top: 60px;
+            right: 110px;
+            font-size: .7rem;
+            border-radius: 5px;
+            padding: 2px 15px;
+            color: white;
+        }
+    }
+    .wordCount textarea {
+        width: 100%;
+        color: black;
+        font-family: sans-serif;
+        line-height: 2;
+        padding: 15px;
+        background-color: transparent;
+        outline: none;
+        border: none;
+        height: fit-content !important;
+        resize:vertical !important;
+        
+    }
+    .wordCount {
+        width: 100%;
+        margin: 100px auto 30px;
+        justify-content: center;
+        padding: 30px 50px;
+        .heading h4 {
+            margin: 15px 0;
+            text-align: center;
+            font-weight: 600;
+            line-height: 2;
+        }
+       .heading p {
+            text-align: center;
+        }
+    }
+    #count {
+        background-color: rebeccapurple;
+        color: white;
+        width: 100%;
+        padding: 8px;
+        margin: 20px 0;
+    }
+    .NavigationControls {
+        display: flex;
+        gap: 35px;
+        justify-content: space-between;
+        padding: 5px;
+        align-items: center;
+        background-color: white;
+        color: black;
+        border-radius: 10px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-top: none;
+        border: 1px solid black;
+        border-top: 1px solid gainsboro;
+    }
+    .countsWC {
+        display: flex;
+        gap: 5px;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .documentHandlerBtns {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        button {
+            aspect-ratio: 1/1 !important;
+            height: 100%;
+            transition: .4s;
+        }
+            ion-icon, i {
+                font-size: 1.8rem;
+                line-height: 1;
+            }
+        #downloadDoc {
+            ion-icon {
+                border-bottom: 2px solid black;
+                font-size: 1.5rem;
+            }
+        }
+        #downloadDoc:hover {
+            ion-icon {
+                border-bottom: 2px solid white;
+            }
+        }
+        .btn:hover {
+            background-color: rebeccapurple;
+            color: white;
+        }
+    }
+    #mm {
+        line-height: 2;
+        display: flex;
+        padding: 0 10px;
+        gap: 6px;
+        align-items: center;
+    }
+    #words, #characters {
+            min-width: fit-content;
+            border-bottom: 1px solid rebeccapurple;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(245, 245, 245, 0.525);
+            line-height: 1.6;
+            padding: 0 20px;
+    }
+
+
+.uploadContainer {
+    background-color: white;
+    color: black!important;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid;
+    margin: 20px 0;
+    .uploadDrop {
+        width: 100%; height: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: .8rem;
+        gap: 10px;
+        ion-icon {
+            color: blue;
+            font-size: 3rem;
+        }
+        input {
+            background-color: red;
+            width: 100%;
+            position: absolute !important;
+            top: 0;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+            
+        }
+    }
+    .bottomTab {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        font-size: .8rem;
+        padding: 2px 5px;
+        color: blue;
+        label, span {
+            cursor: pointer;
+        }
+        label:hover, span:hover {
+            color: rebeccapurple;
+        }
+    }
+}
+.uploadDrop:hover {
+    border: 3px dotted blue;
+    background-color: rgba(248, 248, 255, 0.822);
+}
+#accept {
+    font-size: .8rem;
+    font-weight: 400;
+}
+
+
+.writingMode {
+    display: flex;
+    gap: 0;
+    width: fit-content;
+    margin: 30px auto;
+    border: 1px solid rebeccapurple;
+    border-radius: 20px;
+    button:hover, button:active {
+        border-radius: 20px;
+        color: white;
+        background-color: black;
+    }
+    button {
+        border-radius: 20px;
+        border-top-right-radius: 0!important;
+        border-bottom-right-radius: 0!important;
+        min-width: 130px;
+        font-size: .8rem;
+        padding: 10px;
+        outline: none;
+        border: none;
+    }
+    button:nth-child(2) {
+        border-top-left-radius: 0!important;
+        border-bottom-left-radius: 0!important;
+        border-top-right-radius: 15px!important;
+        border-bottom-right-radius: 15px!important;
+    }
+    .activeMode{
+        background-color: rebeccapurple;
+        color: white;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.realtime {
+    margin: 20px 0;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    hr {
+        width: 2px;
+        background-color: blue;
+        height: 30px;
+        outline: none; border: none;
+    }
+    input {
+        width: 30px;
+        height: 15px;
+    }
+}
+
+
+.ContentWrapper {
+    width: 100%;
+    color: black;
+    font-family: sans-serif;
+    padding: 110px;
+    background-color: white;
+    outline: none;
+    border: 1px solid black;
+    border-bottom: 1px solid gainsboro;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border-radius: 10px;
+    line-height: 2;
+    margin: 20px auto 0;
+    position: relative;
+    img {
+        width: 100%;
+    }
+    .textContentArea {
+        outline: none;
+        padding: 5px;
+    }
+}
+
+.loader {
+    width: 16px;
+    height: 16px;
+    margin: 3px;
+    border: 2px solid rebeccapurple;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation .3s linear infinite;
+    }
+
+    @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    }
+
+
+    .uploading {
+        text-align: left;
+        width: 100%;
+        font-size: .7rem;
+        padding-left: 10px;
+        display: none;
+    }
+        .downloader {
+            width: 100%;
+            height: 4px;
+            display: inline-block;
+            position: relative;
+            background-color: white;
+            overflow: hidden;
+          }
+          .downloader::after {
+            content: '';  
+            box-sizing: border-box;
+            width: 100%;
+            height: 4px;
+            background-color: rgb(0, 255, 0);
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: load 3.5s linear 1;
+            transition: .3s;
+          }
+          
+          @keyframes load {
+            0% {
+              width: 0;
+            }
+            100% {
+              width: 100%;
+            }
+          }
+
+
+
+        #errorMessage {
+            font-size: .85rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 10px;
+            ion-icon {
+                font-size: 1.5rem;
+            }
+        }
+
+        
+#accountDetails {
+    background-color: white;
+    width: fit-content;
+    height: fit-content;
+    padding: 5px 2px;
+    border-radius: 5px;
+    position: absolute;
+    top: 45px; right: 0;
+    line-height: 1.5;
+    font-size: .8rem;
+    min-width: 210px !important;
+    display: none;
+    color: black;
+    transition: .3s ease-in-out;
+}
+
+    .item {
+        padding: 6px 10px;
+        line-height: 2;
+        margin: 8px 0;
+        display: flex;
+        gap: 8px;
+        transition: .2s ease-in-out;
+        cursor: pointer;
+        border-top: 1px solid gainsboro;
+        ion-icon {
+            font-size: 1.4rem;
+        }
+    }
+    .email {
+        padding: 10px 10px 5px;
+    }
+    .item:hover {
+        background-color: gainsboro;
+        color: rebeccapurple;
+    }
+
+
+
+
+
+
+
+
+
+.writingModeActive {
+    display: block;
+}
+.uploadModeActive {
+    display: block;
+    .range {
+        position: absolute;
+        background-color: rebeccapurple;
+        line-height: 2;
+        top: 60px;
+        right: 110px;
+        font-size: .7rem;
+        border-radius: 5px;
+        padding: 2px 15px;
+        color: white;
+    }
+}
+
+
+
+
+
+
+@media (max-width: 1000px) {
+    #container,
+    .uploadContainer,
+    #text {
+        width: 100% !important;
+        max-width: none;
+        padding: 20px !important;
+    }
+    .textareaWrapper, .ContentWrapper {
+        padding: 20px !important;
+        margin-top: 50px !important;
+        .range {
+            top: -50px !important;
+            right: 0px !important;
+        }
+    }
+    #text {
+        min-height: 80vh;
+    }
+    .uploadModeActive {
+        .range {
+            top: -50px !important;
+            right: 0px !important;
+        }
+    }
+
+    .third {
+        min-width: fit-content !important;
+    }
+    .third:nth-child(2) {
+        display: none !important;
+    }
+    .heroSecction {
+        height: 70vh;
+    }
+    .layer {
+        align-items: flex-start !important;
+        padding: 30px;
+    }
+    .layer p {
+        width: 95% !important;
+        text-align: left !important;
+    }
+
+    .realtime {
+        margin: 20px 0;
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        hr {
+            width: 2px;
+            background-color: blue;
+            height: 30px;
+            outline: none; border: none;
+        }
+        input {
+            width: 30px;
+            height: 15px;
+        }
+    }
+}

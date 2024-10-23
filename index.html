@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="media/Webicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="index.css">
+
+
+</head>
+<body>
+<div class="heroSecction">
+    <video id="backgroundVideo" loop muted autoplay>
+        <source src="media/Free Download Gradient Background Virgin America_1080p.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <nav class="mainNav">
+        <a class="third" href=""><img src="media/Logocoder.png" alt="Logocoder.png"></a>
+        <h4 class="third"><strong>Word Editor</strong></h4>
+        <div class="span third">
+            <div style="position: relative;" onclick="showSettings()">
+                    <button id="account" type="">
+                        <ion-icon name="person-outline"></ion-icon>
+                    </button>
+                     <div id="accountDetails">
+                        <div class="email">
+                            Email<br>
+                            <span>austineotieno254@gmail.com</span>
+                        </div>
+                        <div class="item">
+                            <ion-icon name="moon-outline"></ion-icon> Switch to Dark Theme
+                        </div>
+                        <div class="item">
+                            <ion-icon name="timer-outline"></ion-icon> Contact Us
+                        </div>
+                        <div class="item">
+                            <ion-icon name="help-circle-outline"></ion-icon> Help
+                        </div>
+                        <div class="item">
+                            <ion-icon name="log-in-outline"></ion-icon> Login
+                        </div>
+                     </div>
+            </div>
+        </div>
+    </nav> 
+    <div class="layer">
+        <h3 style="display: flex; align-items: center; gap: 8px;">Welcome to <i><strong style="display: flex; align-items: center; gap: 8px; padding: 4px; border-bottom: 2px solid white;">Word Editor <ion-icon name="pencil-outline"></ion-icon></strong></i></h3>
+        <p style="width: 50%; text-align: center;">Wordcounter helps you keep track of words in your essay paper. Counting words in realtime giving you warnings if you pass them; something most writer hate :)</p>
+        <div>
+            <button class="btnHero" style="border: 1px solid white; color: white;">Login</button>
+            <button class="btnHero" style="border: 1px solid white; color: white; margin-left: 20px;">Get started</button>
+        </div>
+    </div>
+    <a href="#container"><ion-icon id="arrowD" name="chevron-down-circle-outline"></ion-icon></a>
+</div> 
+    <div id="container" class="container wordCount">
+        <div class="heading mt-2 pt-5">
+            <h4>WordCounter counts words for you in literally a second!</h4>
+            <p>This is the number 1 online word counter web app. Paste or start typing to count. This website is totally free to use at any time for everyone. Student and writers can find this website very useful.</p>
+        </div>
+        <div class="uploadContainer">
+            <label for="wordFile" class="uploadDrop">
+                <ion-icon name="document-text-outline"></ion-icon>
+                <p>Browse or Drag and Drop File here (Word)</p>
+                <input type="file" title="" onchange="uploadItem()" ondrop="uploadItem()" name="wordFile" accept=".docx,.doc,.txt,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/plain" placeholder="Pick or Drag and Drop File">
+            </label>
+            <div class="bottomTab">
+                <label for="wordFile">Browse My computer</label>   <span>From Link</span>
+            </div>
+            <div class="uploading">
+                <span class="downloader"></span>
+                <div class="documentName">Word.doc</div>
+            </div>
+                 <code id="accept">Only word documents accepted (.docx, .doc, .txt etc.)</code>
+        </div>
+        <div class="writingMode">
+            <button class="btn activeMode" type="">Writing Mode</button>
+            <button class="btn" type="">Upload Mode</button>
+        </div>
+
+
+        <!-- <div class="alert alert-info">
+            <strong class="default"><i class="fa fa-user"></i> John</strong> sent you friend request.
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            </div> -->
+
+        <div class="writingModeActive">
+            <div class="realtime">
+                <span><input type="checkbox" name="realtimecounter" class="realtimeCounter"> Reat-time Counter</span> <hr>  <span><input type="checkbox" class="realtimeTarget" name="Target"> Set Target Count? <strong class="target"></strong></span>   <hr>  <span class="percentAllowanceContainer"><input type="checkbox" class="percentageAllowance" name="Allowance"> Set Percentage Allowance? <strong class="percentage"></strong></span> (Check box to customize)
+            </div>
+            <div id="errorMessage"></div>
+            <div class="textareaWrapper">
+                <div class="range">Word Range: (<span class="wordRange"> Not set </span>)</div>
+                <textarea name="text" id="text" placeholder="Start typing or paste something..." rows="15" onfocus="areaFocussed()"></textarea>
+            </div>
+            <div class="NavigationControls">
+                <div class="countsWC">
+                    <div id="mm">Characters:
+                        <div id="characters">0</div>
+                    </div>
+                    <div id="mm"> Words:
+                        <div id="words">0</div>
+                    </div>
+                </div>
+                <div class="documentHandlerBtns">
+                    <button class="btn" title="Clear" id="clear"><i class="fa fa-close"></i></button>
+                    <button class="btn" title="Download" id="downloadDoc" onclick="downloadWordDocument()"><ion-icon name="arrow-down-outline"></ion-icon></button>
+                    <button class="btn" title="Copy Text"  id="copyDoc"><ion-icon name="clipboard-outline"></ion-icon></button>
+                </div>
+            </div>
+            <button type="submit" id="count" class="btn">Count</button>
+        </div>
+
+        <!-----------------Activated when user uploads file-->
+        <div class="uploadModeActive">
+            <div class="realtime">
+                <span><input type="checkbox" name="realtimecounter" class="realtimeCounter"> Reat-time Counter</span> <hr>  <span><input type="checkbox" class="realtimeTarget" name="Target"> Set Target Count? <strong class="target"></strong></span>   <hr>  <span class="percentAllowanceContainer"><input type="checkbox" class="percentageAllowance" name="Allowance"> Set Percentage Allowance? <strong class="percentage"></strong></span> (Check box to customize)
+            </div>
+            <div id="errorMessage"></div>
+            <div id="container"  class="container ContentWrapper">
+                <div class="range">
+                    Word Range: (<span><span class="Range">200</span>)</span>
+                </div>
+                <div class="textContentArea" contenteditable="true"  onfocus="areaFocussed()"></div>
+            </div>
+            <div class="NavigationControls">
+                <div class="countsWC">
+                    <div id="mm">Characters:
+                        <div id="characters" class="uploadedTextCharacters">0</div>
+                    </div>
+                    <div id="mm"> Words:
+                        <div id="words" class="uploadedTextWords">0</div>
+                    </div>
+                </div>
+                <div class="documentHandlerBtns">
+                    <button class="btn" title="Download" id="like"><i class="bi bi-hand-thumbs-up"></i></button>
+                    <button class="btn" title="Download" id="downloadDoc"><ion-icon name="arrow-down-outline"></ion-icon></button>
+                    <button class="btn" title="Copy Text"  id="copyDoc"><ion-icon name="clipboard-outline"></ion-icon></button>
+                </div>
+            </div>
+            <button type="submit" id="count" class="btn countDocument">Count</button>
+        </div>
+
+    </div>
+    <footer>
+        <section style="text-align: center; justify-content: center;">
+            <section class="NavigationP">
+                <div>
+                    <div class='d-flex flex-row justify-content-center gap-4 text-center'>
+                        <a href=''><i class="fa-brands fa-instagram"></i></a>
+                        <a href=''><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href=''><i class="fa-brands fa-youtube"></i></a>
+                        <a href=''><i class="fa-brands fa-spotify"></i></a>
+                        <a href=''><i class="fa-solid fa-blog"></i></a>
+                  </div>
+                </div>
+            </section>
+            <div>
+                <a href="mailto:austine.oduk577@gmail.com"title="Say Hi" class="d-flex align-items-center justify-content-center">
+                    <i class="fa-solid fa-envelope"></i> &nbsp; austine.oduk577@gmail.com
+                </a>
+            </div>
+            <div>
+                Copyright © 2023 | Austine Otieno (aka Oduk) <a href="">View Source Code</a>
+            </div>
+        </section>
+    </footer>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.4/mammoth.browser.min.js"></script>
+    <script src="counter.js"></script>
+</body>
+</html>
