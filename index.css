@@ -177,9 +177,9 @@ margin-bottom: 12px;
     }
 #arrowD {
     position: absolute;
-    bottom: 40px;
+    bottom: 30px;
     color: white;
-    font-size: 2rem;
+    font-size: 3rem;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -222,11 +222,14 @@ img {
         aspect-ratio: 1/1 !important;
         object-fit: cover;
         object-position: center;
+        height: 45px;
         cursor: pointer;
         border: none;
         background-color: white;
-        padding: 8px;
+        display: flex;
         color: black;
+        justify-content: center;
+        align-items: center;
         ion-icon {
             font-size: 1.5rem;
             line-height: 0;
@@ -395,7 +398,7 @@ min-width: 120px;
 .uploadContainer {
     background-color: white;
     color: black!important;
-    height: 250px;
+    height: 350px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -749,11 +752,14 @@ min-width: 120px;
         display: none !important;
     }
     .heroSecction {
-        height: 70vh;
+        height: fit-content !important;
+    }
+    #arrowD {
+        display: none;
     }
     .layer {
         align-items: flex-start !important;
-        padding: 30px;
+        padding: 50px 30px;
     }
     .layer p {
         width: 95% !important;

@@ -384,7 +384,12 @@ copyText.addEventListener("click", ()=>{
 
 
 function areaFocussed() {
-    alert('We are typing...')
+    document.querySelector('.textareaWrapper').style.border = '1px solid blue';
+    document.querySelector('.ContentWrapper').style.border = '1px solid blue';
+}
+function areaBlur() {
+    document.querySelector('.textareaWrapper').style.border = '1px solid black';
+    document.querySelector('.ContentWrapper').style.border = '1px solid black';
 }
 
 

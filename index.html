@@ -57,7 +57,7 @@
             <button class="btnHero" style="border: 1px solid white; color: white; margin-left: 20px;">Get started</button>
         </div>
     </div>
-    <a href="#container"><ion-icon id="arrowD" name="chevron-down-circle-outline"></ion-icon></a>
+    <a href="#container"><ion-icon id="arrowD" name="chevron-down-outline"></ion-icon></a>
 </div> 
     <div id="container" class="container wordCount">
         <div class="heading mt-2 pt-5">
@@ -97,7 +97,7 @@
             <div id="errorMessage"></div>
             <div class="textareaWrapper">
                 <div class="range">Word Range: (<span class="wordRange"> Not set </span>)</div>
-                <textarea name="text" id="text" placeholder="Start typing or paste something..." rows="15" onfocus="areaFocussed()"></textarea>
+                <textarea name="text" id="text" placeholder="Start typing or paste something..." rows="15" onfocus="areaFocussed()" onblur="areaBlur()" ></textarea>
             </div>
             <div class="NavigationControls">
                 <div class="countsWC">
@@ -127,7 +127,7 @@
                 <div class="range">
                     Word Range: (<span><span class="Range">200</span>)</span>
                 </div>
-                <div class="textContentArea" contenteditable="true"  onfocus="areaFocussed()"></div>
+                <div class="textContentArea" contenteditable="true"  onfocus="areaFocussed()" onblur="areaBlur()" ></div>
             </div>
             <div class="NavigationControls">
                 <div class="countsWC">
