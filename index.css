@@ -30,7 +30,14 @@ body{
     background-color: ghostwhite;
     scroll-snap-type: mandatory;
     scroll-behavior: smooth;
+    color: black;
 }
+
+
+
+
+
+
 footer {
     background-color: white;
     padding: 20px 0;
@@ -353,23 +360,21 @@ min-width: 120px;
         align-items: center;
         button {
             aspect-ratio: 1/1 !important;
-            height: 100%;
+            height: 32px;
             transition: .4s;
+            border: 1px solid transparent;
+            background-color: transparent;
+            outline: none;
         }
             ion-icon, i {
                 font-size: 1.8rem;
                 line-height: 1;
             }
-        #downloadDoc {
-            ion-icon {
-                border-bottom: 2px solid black;
-                font-size: 1.5rem;
-            }
+        #downloadDoc ion-icon {
+            border-bottom: 2px solid black;
         }
-        #downloadDoc:hover {
-            ion-icon {
-                border-bottom: 2px solid white;
-            }
+        #downloadDoc:hover ion-icon {
+            border-bottom: 2px solid white;
         }
         .btn:hover {
             background-color: rebeccapurple;
@@ -389,7 +394,6 @@ min-width: 120px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: rgba(245, 245, 245, 0.525);
             line-height: 1.6;
             padding: 0 20px;
     }
@@ -436,7 +440,7 @@ min-width: 120px;
         justify-content: space-between;
         font-size: .8rem;
         padding: 2px 5px;
-        color: blue;
+        color: rgb(66, 66, 255);
         label, span {
             cursor: pointer;
         }
@@ -445,6 +449,8 @@ min-width: 120px;
         }
     }
 }
+
+
 .uploadDrop:hover {
     border: 3px dotted blue;
     background-color: rgba(248, 248, 255, 0.822);
@@ -453,6 +459,65 @@ min-width: 120px;
     font-size: .8rem;
     font-weight: 400;
 }
+.activityR {
+    border: 1px solid gainsboro;
+    padding: 10px;
+    border-radius: 5px;
+    width: 250px;
+    overflow-x: hidden;
+    .recentUploadtext, .recent {
+        max-height: 8rem;
+        overflow: hidden;
+    }
+}
+.activityR:hover {
+    border: 1px solid white;
+    background-color: rgb(33, 33, 33);
+    cursor: pointer;
+}
+
+
+body.dark {
+    background-color: rgb(23, 23, 23);
+    color: white;
+}
+.uploadContainer.dark, .NavigationControls.dark, footer.dark, .textContentArea.dark, .ContentWrapper.dark, .uploadDrop.dark, #accountDetails.dark {
+    background-color: rgb(33, 33, 33) !important;
+    color: white !important;
+}
+.documentHandlerBtns button.dark {
+        color: white;
+}
+footer a.dark {
+    color: rgb(136, 136, 255) !important;
+}
+
+
+.uploadDrop.dark:hover {
+    background-color: rgb(47, 47, 47);
+    color: white !important;
+    border: 3px dotted gainsboro;
+}
+.textareaWrapper.dark {
+    color: white;
+    background-color: rgb(33, 33, 33);
+    textarea {
+        color: white;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 .writingMode {

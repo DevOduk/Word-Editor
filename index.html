@@ -33,8 +33,8 @@
                             Email<br>
                             <span>austineotieno254@gmail.com</span>
                         </div>
-                        <div class="item">
-                            <ion-icon name="moon-outline"></ion-icon> Switch to Dark Theme
+                        <div class="item" onclick="darkmode()">
+                            <ion-icon name="moon-outline"></ion-icon> Switch to <span class='mode'>Dark</span> Mode
                         </div>
                         <div class="item">
                             <ion-icon name="timer-outline"></ion-icon> Contact Us
@@ -79,6 +79,17 @@
             </div>
                  <code id="accept">Only word documents accepted (.docx, .doc, .txt etc.)</code>
         </div>
+        <h5>Recent activity</h5>
+        <div style="display: flex; gap: 40px; justify-content: center;">
+            <div class="activityR">
+                <div><i><strong style="display: flex; align-items: center; gap: 8px; padding: 4px;">Recently edited<ion-icon name="pencil-outline"></ion-icon></strong></i></div>
+                <div class="recent"> This is your recently typed gh tex this is your recently typed texthis is your recently typed text ...</div>
+            </div>
+            <div class="activityR">
+                <div><i><strong style="display: flex; align-items: center; gap: 8px; padding: 4px;">Recently uploaded <ion-icon name="pencil-outline"></ion-icon></strong></i></div>
+                <div class="recentUploadtext"> This is your recently typed text his is your recently typed texthis is your recently typed text ...</div>
+            </div>
+        </div>
         <div class="writingMode">
             <button class="btn activeMode" type="">Writing Mode</button>
             <button class="btn" type="">Upload Mode</button>
@@ -101,9 +112,6 @@
             </div>
             <div class="NavigationControls">
                 <div class="countsWC">
-                    <div id="mm">Characters:
-                        <div id="characters">0</div>
-                    </div>
                     <div id="mm"> Words:
                         <div id="words">0</div>
                     </div>
@@ -129,18 +137,15 @@
                 </div>
                 <div class="textContentArea" contenteditable="true"  onfocus="areaFocussed()" onblur="areaBlur()" ></div>
             </div>
-            <div class="NavigationControls">
+            <div class="NavigationControls two">
                 <div class="countsWC">
-                    <div id="mm">Characters:
-                        <div id="characters" class="uploadedTextCharacters">0</div>
-                    </div>
                     <div id="mm"> Words:
                         <div id="words" class="uploadedTextWords">0</div>
                     </div>
                 </div>
                 <div class="documentHandlerBtns">
-                    <button class="btn" title="Download" id="like"><i class="bi bi-hand-thumbs-up"></i></button>
-                    <button class="btn" title="Download" id="downloadDoc"><ion-icon name="arrow-down-outline"></ion-icon></button>
+                    <button class="btn" title="Clear" id="clear"><i class="fa fa-close"></i></button>
+                    <button class="btn" title="Download" id="downloadDoc" onclick="downloadWordDocument()"><ion-icon name="arrow-down-outline"></ion-icon></button>
                     <button class="btn" title="Copy Text"  id="copyDoc"><ion-icon name="clipboard-outline"></ion-icon></button>
                 </div>
             </div>

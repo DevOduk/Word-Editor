@@ -28,6 +28,39 @@ window.onscroll = function() {
 
 
 
+const recent = localStorage.getItem('RecentTexts')
+const uploaded = localStorage.getItem('RecentUpload')
+
+console.log('Recent: ', recent)
+console.log('Uploaded: ', uploaded)
+
+document.querySelector('.recent').textContent = recent;
+document.querySelector('.recentUploadtext').textContent = uploaded;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var textArea = document.getElementById("text");
 var textContentArea = document.querySelector(".textContentArea");
 
@@ -36,9 +69,7 @@ textContentArea.addEventListener("input", function(){
 });
 
 
-var count = document.getElementById("count");
-count.addEventListener("click", (e) => {
-    var characters = document.getElementById("characters");
+document.addEventListener("DOMContentLoaded", () => {
     var words = document.getElementById("words");
     var text = document.getElementById("text").value.trim();
     if(text){
@@ -48,23 +79,45 @@ count.addEventListener("click", (e) => {
         return word.length > 0;
     }).length;
 
-    words.innerHTML = characters.innerHTML = `<span class="loader"></span>`;
+    words.innerHTML =  `<span class="loader"></span>`;
     setTimeout(()=>{
         words.innerHTML = wordCount;
-        characters.innerHTML = text.replace(/\s/g, "").length;
     }, 1000);
+
+    localStorage.setItem('RecentTexts', text)
+    }
+
+});
+
+var count = document.getElementById("count");
+count.addEventListener("click", (e) => {
+    var words = document.getElementById("words");
+    var text = document.getElementById("text").value.trim();
+    if(text){
+
+
+    var wordCount = text.split(/\s+/).filter(function (word) {
+        return word.length > 0;
+    }).length;
+
+    words.innerHTML = `<span class="loader"></span>`;
+    setTimeout(()=>{
+        words.innerHTML = wordCount;
+    }, 1000);
+
+    localStorage.setItem('RecentTexts', text)
     }
 
     else {
         alert("Please type something or paste an item to count!")
     }
+
 });
 
 
 
 var countDocument = document.querySelector(".countDocument");
 countDocument.addEventListener("click", (e) => {
-    var characters = document.querySelector(".uploadedTextCharacters");
     var words = document.querySelector(".uploadedTextWords");
     var text = document.querySelector(".textContentArea").textContent.trim();
     if(text){
@@ -74,10 +127,9 @@ countDocument.addEventListener("click", (e) => {
         return word.length > 0;
     }).length;
 
-    words.innerHTML = characters.innerHTML = `<span class="loader"></span>`;
+    words.innerHTML = `<span class="loader"></span>`;
     setTimeout(()=>{
         words.innerHTML = wordCount;
-        characters.innerHTML = text.replace(/\s/g, "").length;
     }, 1000);
     }
 
@@ -111,7 +163,6 @@ countDocument.addEventListener("click", (e) => {
                 uploadContainer.style.display = "none";
                 countUploadedText();
             }, 4500);
-            textContentArea.textContent = "Uploading document! Please wait...";
 
 
             var reader = new FileReader();
@@ -244,7 +295,9 @@ countDocument.addEventListener("click", (e) => {
             return word.length > 0;
         }).length;
         document.querySelector(".uploadedTextWords").textContent = wordsCount;
-        document.querySelector(".uploadedTextCharacters").textContent = text.replace(/\s/g, "").length;
+
+
+        localStorage.setItem('RecentUpload', text)
     }
 
 
@@ -395,6 +448,71 @@ function areaBlur() {
 
 
 
+function applyDarkTheme() {
+    document.querySelector('body').classList.add('dark')
+    document.querySelector('.uploadContainer').classList.add('dark')
+    document.querySelector('footer').classList.add('dark')
+    document.querySelector('.textContentArea').classList.add('dark')
+    document.querySelector('.ContentWrapper').classList.add('dark')
+    document.querySelector('.documentHandlerBtns .btn').classList.add('dark')
+    document.querySelectorAll('footer a').forEach((item, index) => {
+        item.classList.add('dark')
+    })
+    document.querySelector('.uploadDrop').classList.add('dark')
+    document.querySelector('.textareaWrapper').classList.add('dark')
+    document.querySelector('.NavigationControls').classList.add('dark')
+    document.querySelector('.NavigationControls.two').classList.add('dark')
+    document.querySelector('#accountDetails').classList.add('dark')
+    document.querySelectorAll('.documentHandlerBtns .btn').forEach((item, index) => {
+        item.classList.add('dark')
+    })
+}
+function removeDarkTheme() {
+    document.querySelector('body').classList.remove('dark')
+    document.querySelector('.uploadContainer').classList.remove('dark')
+    document.querySelector('footer').classList.remove('dark')
+    document.querySelector('.textContentArea').classList.remove('dark')
+    document.querySelector('.ContentWrapper').classList.remove('dark')
+    document.querySelector('.documentHandlerBtns .btn').classList.remove('dark')
+    document.querySelectorAll('footer a').forEach(item => {
+        item.classList.remove('dark')
+    })
+    document.querySelector('.uploadDrop').classList.remove('dark')
+    document.querySelector('.textareaWrapper').classList.remove('dark')
+    document.querySelector('.NavigationControls').classList.remove('dark')
+    document.querySelector('.NavigationControls.two').classList.remove('dark')
+    document.querySelector('#accountDetails').classList.remove('dark')
+    document.querySelectorAll('.documentHandlerBtns .btn').forEach((item, index) => {
+        item.classList.remove('dark')
+    })
+}
+
+const Theme = localStorage.getItem('Theme');
+if(Theme === 'Dark'){
+    applyDarkTheme();
+    document.querySelector('.mode').textContent = 'Light';
+}
+
+
+
+function darkmode() {
+    const body = document.querySelector('body');
+    if(body.classList.contains('dark')){
+        body.classList.remove("dark")
+        localStorage.setItem('Theme', 'Light');
+        document.querySelector('.mode').textContent = Theme;
+        // removeDarkTheme()
+    } else {
+        body.classList.add("dark")
+        localStorage.setItem('Theme', 'Dark');
+        applyDarkTheme();
+        document.querySelector('.mode').textContent = Theme;
+    }
+}
+
+
+
+
 
 
 
@@ -451,7 +569,6 @@ function areaBlur() {
 setInterval(() => {
     if(realtime.checked){
         textArea.addEventListener("input", ()=>{
-            var characters = document.getElementById("characters");
             var words = document.getElementById("words");
             var text = textArea.value.trim();
             if(text){
@@ -461,7 +578,6 @@ setInterval(() => {
             }).length;
             console.log(wordCount)
             words.innerHTML = wordCount;
-            characters.innerHTML = text.replace(/\s/g, "").length;
             }
         })
         
@@ -483,7 +599,6 @@ modes.forEach(function(writingMode){
             writingModeActive = false;
             uploadModeActive = true;
 
-            textContentArea.textContent = "Upload a word document...";
             //console.log("Mode set to Upload");
         } else {
             writingModeActive = true;
