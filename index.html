@@ -65,7 +65,7 @@
             <p>This is the number 1 online word counter web app. Paste or start typing to count. This website is totally free to use at any time for everyone. Student and writers can find this website very useful.</p>
         </div>
         <div class="uploadContainer">
-            <label for="wordFile" class="uploadDrop">
+            <label for="wordFile" class="uploadDrop" id="uploadAre">
                 <ion-icon name="document-text-outline"></ion-icon>
                 <p>Browse or Drag and Drop File here (Word)</p>
                 <input type="file" title="" onchange="uploadItem()" ondrop="uploadItem()" name="wordFile" accept=".docx,.doc,.txt,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/plain" placeholder="Pick or Drag and Drop File">
@@ -79,17 +79,41 @@
             </div>
                  <code id="accept">Only word documents accepted (.docx, .doc, .txt etc.)</code>
         </div>
-        <h5>Recent activity</h5>
+        <!-- <h5>Recent activity</h5>
         <div style="display: flex; gap: 40px; justify-content: center;">
-            <div class="activityR">
+            <div class="activityR recentBox">
                 <div><i><strong style="display: flex; align-items: center; gap: 8px; padding: 4px;">Recently edited<ion-icon name="pencil-outline"></ion-icon></strong></i></div>
-                <div class="recent"> This is your recently typed gh tex this is your recently typed texthis is your recently typed text ...</div>
+                <div class="recent text"> text ...</div>
             </div>
-            <div class="activityR">
+            <div class="activityR uploadedBox">
                 <div><i><strong style="display: flex; align-items: center; gap: 8px; padding: 4px;">Recently uploaded <ion-icon name="pencil-outline"></ion-icon></strong></i></div>
-                <div class="recentUploadtext"> This is your recently typed text his is your recently typed texthis is your recently typed text ...</div>
+                <div class="recentUploadtext text"> This is your recently typed text his is your recently typed texthis is your recently typed text ...</div>
             </div>
-        </div>
+            <div class="activityR altRecentText">
+                Your history will appear here
+            </div>
+
+
+
+
+
+
+
+            <div class="activityR recentBox">
+                <div><i><strong style="display: flex; align-items: center; gap: 8px; padding: 4px;">
+                    Recently edited <ion-icon name="pencil-outline"></ion-icon>
+                </strong></i></div>
+                Recent items will be rendered here
+            </div>
+            
+            <div class="activityR altRecentText">
+                Your history will appear here
+            </div>
+        </div> -->
+        
+
+
+
         <div class="writingMode">
             <button class="btn activeMode" type="">Writing Mode</button>
             <button class="btn" type="">Upload Mode</button>
@@ -112,8 +136,8 @@
             </div>
             <div class="NavigationControls">
                 <div class="countsWC">
-                    <div id="mm"> Words:
-                        <div id="words">0</div>
+                    <div id="mm">
+                        <div id="words">0</div> Words
                     </div>
                 </div>
                 <div class="documentHandlerBtns">
@@ -139,8 +163,8 @@
             </div>
             <div class="NavigationControls two">
                 <div class="countsWC">
-                    <div id="mm"> Words:
-                        <div id="words" class="uploadedTextWords">0</div>
+                    <div id="mm">
+                        <span id="words" class="uploadedTextWords">0</span> Words
                     </div>
                 </div>
                 <div class="documentHandlerBtns">

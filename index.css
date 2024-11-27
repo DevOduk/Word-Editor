@@ -270,7 +270,7 @@ min-width: 120px;
         margin: 20px 0;
     }
     #text {
-        min-height: 80vh;
+        min-height: 80vh;line-height: 2;
     }
     .textareaWrapper {
         width: 100%;
@@ -360,7 +360,6 @@ min-width: 120px;
         align-items: center;
         button {
             aspect-ratio: 1/1 !important;
-            height: 32px;
             transition: .4s;
             border: 1px solid transparent;
             background-color: transparent;
@@ -381,21 +380,12 @@ min-width: 120px;
             color: white;
         }
     }
-    #mm {
+    #mm, #words {
         line-height: 2;
         display: flex;
-        padding: 0 10px;
         gap: 6px;
-        align-items: center;
-    }
-    #words, #characters {
-            min-width: fit-content;
-            border-bottom: 1px solid rebeccapurple;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            line-height: 1.6;
-            padding: 0 20px;
+        padding-left: 2px;
+        align-items: center !important;
     }
 
 
@@ -464,16 +454,20 @@ min-width: 120px;
     padding: 10px;
     border-radius: 5px;
     width: 250px;
-    overflow-x: hidden;
     .recentUploadtext, .recent {
         max-height: 8rem;
         overflow: hidden;
     }
-}
-.activityR:hover {
-    border: 1px solid white;
-    background-color: rgb(33, 33, 33);
-    cursor: pointer;
+    .recent-item {
+        overflow: hidden;
+        max-height: 4.4rem;
+        padding: 4px;
+        border: 1px solid transparent;
+        margin: 3px 0
+    }
+    .recent-item:hover {
+        border: 1px solid gainsboro;
+    }
 }
 
 
@@ -481,7 +475,7 @@ body.dark {
     background-color: rgb(23, 23, 23);
     color: white;
 }
-.uploadContainer.dark, .NavigationControls.dark, footer.dark, .textContentArea.dark, .ContentWrapper.dark, .uploadDrop.dark, #accountDetails.dark {
+.uploadContainer.dark, .NavigationControls.dark, footer.dark, #account.dark, .textContentArea.dark, .ContentWrapper.dark, .uploadDrop.dark, #accountDetails.dark {
     background-color: rgb(33, 33, 33) !important;
     color: white !important;
 }

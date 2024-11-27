@@ -24,26 +24,90 @@ window.onscroll = function() {
     prevScrollPos = currentScrollPos;
 };
 
+function countText() {
+    var words = document.getElementById("words");
+    var text = document.getElementById("text").value.trim();
+    if(text){
+
+
+    var wordCount = text.split(/\s+/).filter(function (word) {
+        return word.length > 0;
+    }).length;
+
+    words.innerHTML = `<span class="loader"></span>`;
+    setTimeout(()=>{
+        words.innerHTML = wordCount;
+    }, 1000);
+
+
+    // Store updated array in localStorage
+    // if(!recentArray.includes(text)){
+    //     recentArray.push(text);
+    //     if (recentArray.length > 3) {
+    //         recentArray = recentArray.slice(-3);
+    //     }
+
+    // // localStorage.setItem('RecentTexts', JSON.stringify(recentArray));
+    // }
+}
+
+    else {
+        words.innerHTML = 0
+    }
+}
+
+
+
+// const recent = localStorage.getItem('RecentTexts')
+// const uploaded = localStorage.getItem('RecentUpload')
+
+
+// if(recent && recent.trim() != ''){
+//     document.querySelector('.altRecentText').style.display = 'none';
+// } else {
+//     document.querySelector('.recentBox').style.display = 'none';
+// }
+// if(uploaded && uploaded.trim() != ''){
+//     document.querySelector('.altRecentText').style.display = 'none';
+// } else {
+//     document.querySelector('.uploadedBox').style.display = 'none';
+// }
+
+// document.querySelector('.recent').textContent = recent;
+// document.querySelector('.recentUploadtext').textContent = uploaded;
 
 
 
 
-const recent = localStorage.getItem('RecentTexts')
-const uploaded = localStorage.getItem('RecentUpload')
+// let recentArray = JSON.parse(localStorage.getItem('RecentTexts')) || [];
 
-console.log('Recent: ', recent)
-console.log('Uploaded: ', uploaded)
+// function renderRecentItems() {
+//     const recentContainer = document.querySelector('.recentBox');
+//     recentContainer.innerHTML = ''; // Clear previous items
 
-document.querySelector('.recent').textContent = recent;
-document.querySelector('.recentUploadtext').textContent = uploaded;
+//     if (recentArray.length > 0) {
+//         // Display recent items in the recentBox
+//         recentArray.forEach((item, index) => {
+//             const recentItemDiv = document.createElement('div');
+//             recentItemDiv.classList.add('recent-item');
+//             recentItemDiv.classList.add('mb-2');
+//             recentItemDiv.textContent = index + 1 + '. '+item;
+//             recentItemDiv.style.cursor = 'pointer';
 
+//             // Set an onclick event for each item
+//             recentItemDiv.onclick = () => {
+//                 document.getElementById('text').value = item; // Update the main text area
+//             };
 
+//             recentContainer.appendChild(recentItemDiv);
+//         });
+//     } else {
+//         document.querySelector('.altRecentText').style.display = 'block'; // Show fallback text if no items
+//     }
+// }
 
-
-
-
-
-
+// Initial render of recent items on page load
+// document.addEventListener("DOMContentLoaded", renderRecentItems);
 
 
 
@@ -65,59 +129,24 @@ var textArea = document.getElementById("text");
 var textContentArea = document.querySelector(".textContentArea");
 
 textContentArea.addEventListener("input", function(){
-    setInterval(countUploadedText, 100);
+    countUploadedText();
 });
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    var words = document.getElementById("words");
-    var text = document.getElementById("text").value.trim();
-    if(text){
-
-
-    var wordCount = text.split(/\s+/).filter(function (word) {
-        return word.length > 0;
-    }).length;
-
-    words.innerHTML =  `<span class="loader"></span>`;
-    setTimeout(()=>{
-        words.innerHTML = wordCount;
-    }, 1000);
-
-    localStorage.setItem('RecentTexts', text)
-    }
-
+    countText()
 });
 
 var count = document.getElementById("count");
 count.addEventListener("click", (e) => {
-    var words = document.getElementById("words");
-    var text = document.getElementById("text").value.trim();
-    if(text){
-
-
-    var wordCount = text.split(/\s+/).filter(function (word) {
-        return word.length > 0;
-    }).length;
-
-    words.innerHTML = `<span class="loader"></span>`;
-    setTimeout(()=>{
-        words.innerHTML = wordCount;
-    }, 1000);
-
-    localStorage.setItem('RecentTexts', text)
-    }
-
-    else {
-        alert("Please type something or paste an item to count!")
-    }
-
+    countText();
 });
 
 
 
 var countDocument = document.querySelector(".countDocument");
 countDocument.addEventListener("click", (e) => {
+    alert('Counting uploaded')
     var words = document.querySelector(".uploadedTextWords");
     var text = document.querySelector(".textContentArea").textContent.trim();
     if(text){
@@ -297,7 +326,7 @@ countDocument.addEventListener("click", (e) => {
         document.querySelector(".uploadedTextWords").textContent = wordsCount;
 
 
-        localStorage.setItem('RecentUpload', text)
+        // localStorage.setItem('RecentUpload', text)
     }
 
 
@@ -342,7 +371,6 @@ countDocument.addEventListener("click", (e) => {
     realtime.addEventListener("click", ()=>{
         if(realtime.checked){
             alert("You turned on Reat-time Counter!");
-
         }
     });
 
@@ -365,6 +393,8 @@ countDocument.addEventListener("click", (e) => {
             document.querySelector(".target").textContent = "";
         }
     });
+
+
 setInterval(() => {
     if(realtimeTarget.checked){
         percentAllowanceContainer.style.display = "block";
@@ -388,7 +418,7 @@ setInterval(() => {
                 return word.length > 0;
             }).length;
 
-            console.log("Min: ", ((100 - percent)/100 * parseInt(target)), "Max: ", ((100 + percent)/100 * parseInt(target)) );
+            // console.log("Min: ", ((100 - percent)/100 * parseInt(target)), "Max: ", ((100 + percent)/100 * parseInt(target)) );
 
             if(wordCount >= ((100 - percent)/100 * parseInt(target)) && wordCount <= ((100 + percent)/100 * parseInt(target)) ){
                 document.querySelector("#errorMessage").innerHTML = '<ion-icon name="checkmark-circle-outline"></ion-icon> <b>Kudos!</b>  You are within +/- 10% of your target word count!';
@@ -449,70 +479,67 @@ function areaBlur() {
 
 
 function applyDarkTheme() {
-    document.querySelector('body').classList.add('dark')
-    document.querySelector('.uploadContainer').classList.add('dark')
-    document.querySelector('footer').classList.add('dark')
-    document.querySelector('.textContentArea').classList.add('dark')
-    document.querySelector('.ContentWrapper').classList.add('dark')
-    document.querySelector('.documentHandlerBtns .btn').classList.add('dark')
-    document.querySelectorAll('footer a').forEach((item, index) => {
-        item.classList.add('dark')
-    })
-    document.querySelector('.uploadDrop').classList.add('dark')
-    document.querySelector('.textareaWrapper').classList.add('dark')
-    document.querySelector('.NavigationControls').classList.add('dark')
-    document.querySelector('.NavigationControls.two').classList.add('dark')
-    document.querySelector('#accountDetails').classList.add('dark')
-    document.querySelectorAll('.documentHandlerBtns .btn').forEach((item, index) => {
-        item.classList.add('dark')
-    })
+    document.querySelector('body').classList.add('dark');
+    document.querySelector('.uploadContainer').classList.add('dark');
+    document.querySelector('footer').classList.add('dark');
+    document.querySelector('.textContentArea').classList.add('dark');
+    document.querySelector('.ContentWrapper').classList.add('dark');
+    document.querySelector('.documentHandlerBtns .btn').classList.add('dark');
+    document.querySelectorAll('footer a').forEach(item => item.classList.add('dark'));
+    document.querySelector('.uploadDrop').classList.add('dark');
+    document.querySelector('.textareaWrapper').classList.add('dark');
+    document.querySelector('.NavigationControls').classList.add('dark');
+    document.querySelector('.NavigationControls.two').classList.add('dark');
+    document.querySelector('#accountDetails').classList.add('dark');
+    document.querySelector('#account').classList.add('dark');
+    document.querySelectorAll('.documentHandlerBtns .btn').forEach(item => item.classList.add('dark'));
 }
+
 function removeDarkTheme() {
-    document.querySelector('body').classList.remove('dark')
-    document.querySelector('.uploadContainer').classList.remove('dark')
-    document.querySelector('footer').classList.remove('dark')
-    document.querySelector('.textContentArea').classList.remove('dark')
-    document.querySelector('.ContentWrapper').classList.remove('dark')
-    document.querySelector('.documentHandlerBtns .btn').classList.remove('dark')
-    document.querySelectorAll('footer a').forEach(item => {
-        item.classList.remove('dark')
-    })
-    document.querySelector('.uploadDrop').classList.remove('dark')
-    document.querySelector('.textareaWrapper').classList.remove('dark')
-    document.querySelector('.NavigationControls').classList.remove('dark')
-    document.querySelector('.NavigationControls.two').classList.remove('dark')
-    document.querySelector('#accountDetails').classList.remove('dark')
-    document.querySelectorAll('.documentHandlerBtns .btn').forEach((item, index) => {
-        item.classList.remove('dark')
-    })
+    document.querySelector('body').classList.remove('dark');
+    document.querySelector('.uploadContainer').classList.remove('dark');
+    document.querySelector('footer').classList.remove('dark');
+    document.querySelector('.textContentArea').classList.remove('dark');
+    document.querySelector('.ContentWrapper').classList.remove('dark');
+    document.querySelector('.documentHandlerBtns .btn').classList.remove('dark');
+    document.querySelectorAll('footer a').forEach(item => item.classList.remove('dark'));
+    document.querySelector('.uploadDrop').classList.remove('dark');
+    document.querySelector('.textareaWrapper').classList.remove('dark');
+    document.querySelector('.NavigationControls').classList.remove('dark');
+    document.querySelector('.NavigationControls.two').classList.remove('dark');
+    document.querySelector('#accountDetails').classList.remove('dark');
+    document.querySelector('#account').classList.remove('dark');
+    document.querySelectorAll('.documentHandlerBtns .btn').forEach(item => item.classList.remove('dark'));
 }
 
 const Theme = localStorage.getItem('Theme');
-if(Theme === 'Dark'){
+if (Theme === 'Dark') {
     applyDarkTheme();
     document.querySelector('.mode').textContent = 'Light';
 }
 
 
-
 function darkmode() {
     const body = document.querySelector('body');
-    if(body.classList.contains('dark')){
-        body.classList.remove("dark")
+    if (body.classList.contains('dark')) {
+        removeDarkTheme();
         localStorage.setItem('Theme', 'Light');
-        document.querySelector('.mode').textContent = Theme;
-        // removeDarkTheme()
+        document.querySelector('.mode').textContent = 'Dark';
     } else {
-        body.classList.add("dark")
-        localStorage.setItem('Theme', 'Dark');
         applyDarkTheme();
-        document.querySelector('.mode').textContent = Theme;
+        localStorage.setItem('Theme', 'Dark');
+        document.querySelector('.mode').textContent = 'Light';
     }
 }
 
 
 
 
+// document.querySelectorAll('.activityR').forEach(recent => {
+//     recent.addEventListener('click', (e)=> {
+//         textArea.value = recent.querySelector('.text').textContent;
+//     })
+// })
 
 
 
@@ -566,25 +593,10 @@ function darkmode() {
 
 
 
-setInterval(() => {
-    if(realtime.checked){
-        textArea.addEventListener("input", ()=>{
-            var words = document.getElementById("words");
-            var text = textArea.value.trim();
-            if(text){
-                var wordCount = text.split(/\s+/).filter(function (word) {
-                    
-                return word.length > 0;
-            }).length;
-            console.log(wordCount)
-            words.innerHTML = wordCount;
-            }
-        })
-        
-    } else{
-        //
-    }
-}, 1000);
+
+textArea.addEventListener('input', ()=>{
+    countText();
+})
 
 
 var modes = document.querySelectorAll(".writingMode button");
